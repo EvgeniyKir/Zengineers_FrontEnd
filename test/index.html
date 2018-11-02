@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test </title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+	<section class="main">
+		<div class="main-item">
+			<div class="item-header  bg-item-color-blues ">
+				<div class="item-header-left">Accordeon item</div>
+				<div class="item-header-right">+</div>
+			</div>
+			<ul class="item-list ">
+				<li class="item-list-element">Element 1</li>
+				<li class="item-list-element">Element 2</li>
+				<li class="item-list-element">Element 3</li>
+				<li class="item-list-element">Element 4</li>
+			</ul>
+		</div>
+		<div class="main-item">
+			<div class="item-header  bg-item-color-white ">
+				<div class="item-header-left">Accordeon item</div>
+				<div class="item-header-right">+</div>
+			</div>
+			<ul class="item-list">
+				<li class="item-list-element">Element 1</li>
+				<li class="item-list-element">Element 2</li>
+				<li class="item-list-element">Element 3</li>
+				<li class="item-list-element">Element 4</li>
+			</ul>
+		</div>
+		<div class="main-item">
+			<div class="item-header  bg-item-color-blues ">
+				<div class="item-header-left">Accordeon item</div>
+				<div class="item-header-right">+</div>
+			</div>
+			<ul class="item-list">
+				<li class="item-list-element">Element 1</li>
+				<li class="item-list-element">Element 2</li>
+				<li class="item-list-element">Element 3</li>
+				<li class="item-list-element">Element 4</li>
+			</ul>
+		</div>
+		<div class="main-item">
+			<div class="item-header  bg-item-color-white ">
+				<div class="item-header-left">Accordeon item</div>
+				<div class="item-header-right">+</div>
+			</div>
+			<ul class="item-list ">
+				<li class="item-list-element">Element 1</li>
+				<li class="item-list-element">Element 2</li>
+				<li class="item-list-element">Element 3</li>
+				<li class="item-list-element">Element 4</li>
+			</ul>
+		</div>
+		<div class="main-item">
+			<div class="item-header  bg-item-color-blues ">
+				<div class="item-header-left">Accordeon item</div>
+				<div class="item-header-right">+</div>
+			</div>
+			<ul class="item-list ">
+				<li class="item-list-element">Element 1</li>
+				<li class="item-list-element">Element 2</li>
+				<li class="item-list-element">Element 3</li>
+				<li class="item-list-element">Element 4</li>
+			</ul>
+		</div>
+	</section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$('.main-item').on('click', myfunction);
+
+			function myfunction(ev) {
+				//alert("Event Click");
+				let evtarget = $(ev.target);
+				$('.item-list').slideUp(1000);
+				if( evtarget.attr('class') === 'item-header-left' || evtarget.attr('class') === 'item-header-right'  ){
+					
+					if(evtarget.parent().next().css('display') === "none"){
+						evtarget.parent().next().slideDown(1000);
+					} else {
+						evtarget.parent().next().slideUp(1000);
+					}
+				} else {
+					let childevtarget = evtarget.next();
+					if(childevtarget.css('display') === "none"){
+						childevtarget.slideDown(1000);
+					} else {
+						childevtarget.slideUp(1000);
+					}
+										
+				}
+
+			}
+		});
+	 	
+
+/*        const myfunction = (ev) => {
+			let el = ev.target.nextSibling;
+			console.log(el);
+			alert(" Click Event");
+		};
+		let elements = document.getElementsByClassName("item-header");
+		console.log(elements);
+		console.log(Array.isArray( elements) );
+		for(let el in elements){
+			// console.log(Array.isArray(el), " === ", typeof el);
+			
+			console.log(elements[el] + "   ELEM");
+			if( Array.isArray(elements[el])){
+				elements[el][1].addEventListener("click", myfunction, false);
+			}
+		}
+
+		// console.log(window);
+*/
+
+
+	</script>
+</body>
+</html>
